@@ -1,0 +1,44 @@
+name: Daily Tutor Pages Build
+
+on:
+  schedule:
+    # 06:00 America/Chicago = 11:00 UTC (CST) / 12:00 UTC during CDT.
+    # Fixed at 11:00 UTC; off by an hour during daylight saving, never a day.
+    - cron: "0 11 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [master, main]
+    paths:
+      - "site/**"
+      - ".github/workflows/daily-tutor.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build today's page
+        run: python3 site/generate.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
