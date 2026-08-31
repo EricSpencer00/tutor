@@ -1,0 +1,16 @@
+name: verify links
+on:
+  schedule:
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+  push:
+    paths:
+      - "site/library.json"
+      - "site/verify_links.py"
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check every library URL resolves to the real document
+        run: python3 site/verify_links.py site/library.json

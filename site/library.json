@@ -1,5 +1,5 @@
 {
-  "_note": "Curated bank of human-written pieces. Each entry points at writing by a named person. Nothing here is model-generated. 'why' is an editor's note, not a summary \u2014 it says what you get out of reading it.",
+  "_note": "Curated bank of human-written pieces. Each entry points at writing by a named person. Nothing here is model-generated. 'why' is an editor's note, not a summary — it says what you get out of reading it.",
   "pieces": [
     {
       "id": "hamming-your-research",
@@ -21,7 +21,7 @@
       "url": "https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html",
       "topic": "Computing",
       "minutes": 30,
-      "why": "Written when programs first got too big for one person to hold in their head. His answer \u2014 make the program small enough to reason about \u2014 is still the whole argument for simplicity."
+      "why": "Written when programs first got too big for one person to hold in their head. His answer — make the program small enough to reason about — is still the whole argument for simplicity."
     },
     {
       "id": "thompson-trusting-trust",
@@ -76,7 +76,7 @@
       "url": "https://calteches.library.caltech.edu/51/2/CargoCult.htm",
       "topic": "Science",
       "minutes": 20,
-      "why": "On the kind of honesty that goes beyond not lying \u2014 reporting the things that could prove you wrong. Written about science, applies directly to benchmarks."
+      "why": "On the kind of honesty that goes beyond not lying — reporting the things that could prove you wrong. Written about science, applies directly to benchmarks."
     },
     {
       "id": "orwell-politics-english",
@@ -95,7 +95,7 @@
       "author": "F. A. Hayek",
       "year": 1945,
       "source": "American Economic Review",
-      "url": "https://www.econlib.org/library/Essays/hykKnw.html",
+      "url": "https://www.aeaweb.org/aer/top20/35.4.519-530.pdf",
       "topic": "Economics",
       "minutes": 30,
       "why": "Argues that the hard part of an economy is that no one person can hold the information needed to plan it. The argument is really about distributed systems, thirty years early."
@@ -117,7 +117,7 @@
       "author": "Alan M. Turing",
       "year": 1950,
       "source": "Mind",
-      "url": "https://academic.oup.com/mind/article/LIX/236/433/986238",
+      "url": "https://courses.cs.umbc.edu/471/papers/turing.pdf",
       "topic": "Artificial intelligence",
       "minutes": 50,
       "why": "The imitation game paper. Most people know the test and not the nine objections he answers, which is where the actual thinking is."
@@ -142,7 +142,7 @@
       "url": "https://lamport.azurewebsites.net/pubs/time-clocks.pdf",
       "topic": "Distributed systems",
       "minutes": 45,
-      "why": "Where happens-before comes from. Lamport starts from the physics of no shared clock and derives what ordering can even mean \u2014 the reasoning you need before any TLA+ spec makes sense."
+      "why": "Where happens-before comes from. Lamport starts from the physics of no shared clock and derives what ordering can even mean — the reasoning you need before any TLA+ spec makes sense."
     },
     {
       "id": "lampson-hints",
@@ -164,7 +164,7 @@
       "url": "https://pages.cs.wisc.edu/~remzi/Naur.pdf",
       "topic": "Software engineering",
       "minutes": 30,
-      "why": "Argues the program is not the artifact \u2014 the theory in the programmers' heads is, and it dies when they leave. Explains why handing over a codebase rarely works."
+      "why": "Argues the program is not the artifact — the theory in the programmers' heads is, and it dies when they leave. Explains why handing over a codebase rarely works."
     },
     {
       "id": "wigner-unreasonable-effectiveness",
@@ -172,7 +172,7 @@
       "author": "Eugene Wigner",
       "year": 1960,
       "source": "Communications in Pure and Applied Mathematics",
-      "url": "https://www.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf",
       "topic": "Mathematics",
       "minutes": 30,
       "why": "Why should maths invented for its own sake describe the physical world at all? Wigner refuses to resolve the puzzle, which is what makes it stay with you."
@@ -194,7 +194,7 @@
       "author": "Paul Lockhart",
       "year": 2002,
       "source": "essay",
-      "url": "https://www.maa.org/sites/default/files/pdf/devlin/LockhartsLament.pdf",
+      "url": "https://worrydream.com/refs/Lockhart_2002_-_A_Mathematician's_Lament.pdf",
       "topic": "Mathematics",
       "minutes": 50,
       "why": "Opens with a nightmare where music is taught the way maths is taught. Even if you liked school maths, it will make you angry about what was left out."
@@ -436,10 +436,10 @@
       "author": "Leonard Bernstein",
       "year": 1973,
       "source": "Harvard Norton Lectures",
-      "url": "https://www.youtube.com/watch?v=I9O4qUUuLTM",
+      "url": "https://www.youtube.com/watch?v=9HjEAtJXssc",
       "topic": "Music theory",
       "minutes": 90,
-      "why": "Bernstein borrows Chomsky's grammar to argue music has a universal syntax, at a piano, in front of a Harvard audience. Watch the first lecture; he demonstrates every claim by playing it."
+      "why": "Bernstein at a piano, arguing music has a grammar the way language does, and demonstrating every claim by playing it. This segment covers the harmonic series; the full Norton lectures follow from it."
     },
     {
       "id": "thomas-lives-of-cell",
@@ -480,7 +480,7 @@
       "author": "Nancy G. Leveson",
       "year": 2011,
       "source": "MIT Press (free PDF)",
-      "url": "https://direct.mit.edu/books/oa-monograph/2908/Engineering-a-Safer-WorldSystems-Thinking-Applied",
+      "url": "https://archive.org/download/oapen-20.500.12657-26043/1004042.pdf",
       "topic": "Safety engineering",
       "minutes": 120,
       "why": "Argues accidents are control failures, not chains of broken parts, and gives you STAMP as an alternative. Chapter 2, on why root-cause thinking misleads, stands alone."
@@ -491,7 +491,7 @@
       "author": "John Allspaw",
       "year": 2012,
       "source": "Etsy Code as Craft",
-      "url": "https://www.etsy.com/codeascraft/blameless-postmortems/",
+      "url": "https://www.etsy.com/codeascraft/blameless-postmortems",
       "topic": "Reliability",
       "minutes": 15,
       "why": "The post that moved the industry off naming the person who ran the command. The argument is practical: punishment buys you silence, and silence costs you the next outage."
@@ -623,7 +623,7 @@
       "author": "Edward R. Tufte",
       "year": 2003,
       "source": "Graphics Press",
-      "url": "https://www.inf.ed.ac.uk/teaching/courses/pi/2016_2017/phil/tufte-powerpoint.pdf",
+      "url": "https://cs.wheatoncollege.edu/~mgousie/comp401/tufte-powerpoint.pdf",
       "topic": "Design",
       "minutes": 30,
       "why": "Tufte takes apart the NASA slide that helped kill the Columbia crew, one bullet point at a time. The clearest case that format changes what can be said."
@@ -722,7 +722,7 @@
       "author": "Daniel Dennett",
       "year": 2006,
       "source": "Topoi",
-      "url": "https://ase.tufts.edu/cogstud/dennett/papers/chmess.pdf",
+      "url": "https://web.ics.purdue.edu/~drkelly/DCDChmess2006.pdf",
       "topic": "Philosophy",
       "minutes": 12,
       "why": "On how a research field can generate endless rigorous work about something nobody should care about. A useful test to run on your own projects."
