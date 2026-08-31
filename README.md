@@ -1,54 +1,26 @@
 # Daily Tutor
 
-A daily-article teaching site. A new topic every day, from a broad subject
-bank — math, science, computing, finance, humanities, music theory, low-level
-architecture, economics, linguistics, engineering, history. Deployed at
-[ericspencer.us/tutor](https://ericspencer.us/tutor) via GitHub Pages.
+A daily reading recommendation. Each day the site picks one real, human-written
+piece — an essay, lecture, or paper by a named author — and says why it is
+worth your time. No model-generated article text ever appears on the site.
+Deployed at [ericspencer.us/tutor](https://ericspencer.us/tutor) via GitHub
+Pages, built on a daily Actions cron.
 
 ## How it works
 
-- `.github/workflows/daily-tutor.yml` runs on a daily cron (06:00 America/Chicago),
-  builds the page, and deploys it to GitHub Pages.
-- `site/generate.py` deterministically picks the day's topic from
-  `site/topics.json` by calendar date, no randomness, no network calls, no API
-  keys.
-- If `site/articles/<slug>.md` exists for that topic, the full written
-  article renders. Otherwise a study-outline page renders instead, so every
-  topic in the bank always has something live.
+`site/library.json` holds the curated bank: title, author, year, source,
+url, topic, estimated reading minutes, and an editor's "why" note per entry.
+`site/generate.py` picks the day's piece deterministically from the calendar
+date (America/Chicago), rotating through the bank so a piece does not repeat
+until every entry has come up once. The page shows that piece's details and
+a link out to the real source, plus the last 14 days of picks computed the
+same way, so a missed day is recoverable without any state file. Pure
+stdlib, no network calls at build time, no API keys.
 
-## Adding articles
+## Adding an entry
 
-Write ~500-700 words in `site/articles/<slug>.md`:
-
-```
----
-title: Article Title
-category: Category Name
-summary: One sentence, shown as the meta description and outline blurb.
----
-
-Body text. Paragraphs separated by blank lines. Supports **bold**,
-*italic*, and `## headers`.
-```
-
-Add a matching entry to `site/topics.json` for any new topic (slug, title,
-category, summary). **Claude sessions: feel free to append new articles here
-over time** — the bank is meant to grow.
-
-## Feedback
-
-Good/Bad buttons on each page save a rating to `localStorage` and open a
-pre-filled GitHub issue (`labels=feedback`) — no backend required.
-
-## Local test
-
-```bash
-python3 site/generate.py && open site/dist/index.html
-```
-
-## Origin
-
-Seeded from the daily-lesson tutor app at
-[EricSpencer00/reading-room-tutor](https://github.com/EricSpencer00/reading-room-tutor)
-(private) — that repo's local interactive tutor and this static daily-article
-site are independent products sharing a topic bank.
+Add an object to the `pieces` array in `site/library.json`: `id` (unique,
+kebab-case), `title`, `author`, `year`, `source`, `url`, `topic`, `minutes`,
+and `why` (one or two sentences on what the reader gets out of it, written
+by a person, not generated). Check the url actually loads before adding it.
+Run `python3 site/generate.py && open site/dist/index.html` to preview.
