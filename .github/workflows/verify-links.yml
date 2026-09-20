@@ -3,6 +3,10 @@ on:
   schedule:
     - cron: "0 12 * * 1"
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "site/library.json"
+      - "site/verify_links.py"
   push:
     paths:
       - "site/library.json"

@@ -338,6 +338,7 @@
       "year": 2009,
       "source": "Notices of the AMS",
       "url": "https://www.ams.org/notices/200902/rtx090200212p.pdf",
+      "fallback_url": "https://web.archive.org/web/20110304104413/http://www.ams.org/notices/200902/rtx090200212p.pdf",
       "topic": "Mathematics",
       "minutes": 35,
       "why": "Dyson divides mathematicians into birds who see connections and frogs who solve what is in front of them, and insists a field needs both. Useful for deciding which one you are this year."

@@ -36,6 +36,17 @@ def pick_piece(date):
     return PIECES[idx]
 
 
+def reading_url(piece):
+    """Return the URL readers should use for a curated piece.
+
+    A fallback is useful when a publisher's canonical host blocks automated
+    readers or has an intermittent edge outage. The fallback is an exact
+    alternate copy recorded alongside the canonical source, not generated
+    content.
+    """
+    return piece.get("fallback_url") or piece["url"]
+
+
 def recent_pieces(date, n=ARCHIVE_DAYS):
     """Last n days including today, most recent first."""
     out = []
@@ -166,7 +177,7 @@ def render_archive_items(date):
         items.append(
             '<li><a href="{url}" target="_blank" rel="noopener">{title}</a> '
             '&mdash; {author}<span class="a-date">{date_str}</span></li>'.format(
-                url=html.escape(piece["url"], quote=True),
+                url=html.escape(reading_url(piece), quote=True),
                 title=html.escape(piece["title"]),
                 author=html.escape(piece["author"]),
                 date_str=d.isoformat(),
@@ -189,7 +200,7 @@ def render_page(piece, date):
         source=html.escape(piece["source"]),
         topic=html.escape(piece["topic"]),
         minutes=piece["minutes"],
-        url=html.escape(piece["url"], quote=True),
+        url=html.escape(reading_url(piece), quote=True),
         date_str=date.isoformat(),
         archive_n=ARCHIVE_DAYS,
         archive_items=render_archive_items(date),

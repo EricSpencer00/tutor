@@ -55,8 +55,7 @@ def keywords(piece):
     return words, surname
 
 
-def check(piece):
-    url = piece["url"]
+def check_url(piece, url):
     try:
         status, final, ctype, body = fetch(url)
     except Exception as e:
@@ -89,6 +88,32 @@ def check(piece):
     if surname in text or hits >= max(1, len(words) // 2):
         return piece, "OK", f"html, {hits}/{len(words)} title words, author={'y' if surname in text else 'n'}"
     return piece, "SUSPECT", f"content match weak ({hits}/{len(words)} words, no '{surname}') at {final}"
+
+
+def source_urls(piece):
+    """Return the canonical source followed by an optional exact fallback."""
+    urls = [piece["url"]]
+    fallback = piece.get("fallback_url")
+    if fallback and fallback not in urls:
+        urls.append(fallback)
+    return urls
+
+
+def check(piece):
+    """Check the canonical source, then fall back only after it fails."""
+    attempts = []
+    for url in source_urls(piece):
+        _, verdict, detail = check_url(piece, url)
+        if verdict == "OK":
+            if attempts:
+                previous = "; ".join(f"{url}: {verdict} ({detail})" for url, verdict, detail in attempts)
+                return piece, "OK", f"fallback verified after {previous}; {detail}"
+            return piece, "OK", detail
+        attempts.append((url, verdict, detail))
+
+    details = "; ".join(f"{url}: {verdict} ({detail})" for url, verdict, detail in attempts)
+    verdict = attempts[-1][1] if attempts else "ERROR"
+    return piece, verdict, f"all sources failed: {details}"
 
 
 def main():
