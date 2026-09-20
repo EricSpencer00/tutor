@@ -30,10 +30,16 @@ class LibraryContractTests(unittest.TestCase):
                 self.assertTrue(piece["fallback_url"].startswith("https://"))
                 self.assertNotEqual(piece["url"], piece["fallback_url"])
 
-    def test_dyson_entry_declares_the_verified_snapshot_fallback(self):
-        piece = next(piece for piece in self.library["pieces"] if piece["id"] == "dyson-birds-frogs")
-        self.assertEqual(generate.reading_url(piece), piece["fallback_url"])
-        self.assertIn(piece["fallback_url"], verify_links.source_urls(piece))
+    def test_blocked_sources_declare_verified_fallbacks(self):
+        expected = {
+            "dyson-birds-frogs": "https://web.archive.org/web/20110304104413/http://www.ams.org/notices/200902/rtx090200212p.pdf",
+            "gowers-two-cultures": "https://www.maths.tcd.ie/~bnick/Gowers.pdf",
+        }
+        pieces = {piece["id"]: piece for piece in self.library["pieces"]}
+        for piece_id, fallback in expected.items():
+            piece = pieces[piece_id]
+            self.assertEqual(generate.reading_url(piece), fallback)
+            self.assertIn(fallback, verify_links.source_urls(piece))
 
 
 class SourceFallbackTests(unittest.TestCase):
