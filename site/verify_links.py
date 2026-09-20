@@ -13,6 +13,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlparse
 
@@ -28,24 +29,44 @@ BOT_BLOCKED = {
 STOP = {"the", "a", "an", "of", "on", "in", "to", "and", "for", "about", "is",
         "it", "be", "as", "at", "by", "from", "with", "more", "than", "what",
         "who", "why", "how", "not", "we", "may", "can", "will", "our", "your"}
+FETCH_ATTEMPTS = 2
+RETRYABLE_STATUSES = {0, 408, 425, 429, 500, 502, 503, 504}
 
 
 def fetch(url):
     """Return (status, final_url, content_type, body_bytes)."""
-    out = subprocess.run(
-        ["curl", "-sSL", "--max-time", "30", "-A", UA,
-         "-w", "\n__META__%{http_code}|%{url_effective}|%{content_type}",
-         "--max-filesize", "8000000", url],
-        capture_output=True, timeout=60)
-    raw = out.stdout
-    marker = raw.rfind(b"\n__META__")
-    if marker == -1:
-        return 0, url, "", b""
-    body = raw[:marker]
-    meta = raw[marker + 9:].decode("utf-8", "replace")
-    parts = meta.split("|")
-    status = int(parts[0]) if parts[0].isdigit() else 0
-    return status, parts[1] if len(parts) > 1 else url, parts[2] if len(parts) > 2 else "", body
+    command = [
+        "curl", "-sSL", "--max-time", "30", "-A", UA,
+        "-w", "\n__META__%{http_code}|%{url_effective}|%{content_type}",
+        "--max-filesize", "8000000", url,
+    ]
+    result = (0, url, "", b"")
+    for attempt in range(FETCH_ATTEMPTS):
+        try:
+            out = subprocess.run(command, capture_output=True, timeout=60)
+        except (OSError, subprocess.TimeoutExpired):
+            out = None
+
+        if out is None:
+            result = (0, url, "", b"")
+        else:
+            raw = out.stdout
+            marker = raw.rfind(b"\n__META__")
+            if marker == -1:
+                result = (0, url, "", b"")
+            else:
+                body = raw[:marker]
+                meta = raw[marker + 9:].decode("utf-8", "replace")
+                parts = meta.split("|")
+                status = int(parts[0]) if parts[0].isdigit() else 0
+                result = (status, parts[1] if len(parts) > 1 else url,
+                          parts[2] if len(parts) > 2 else "", body)
+
+        if result[0] not in RETRYABLE_STATUSES or attempt == FETCH_ATTEMPTS - 1:
+            return result
+        time.sleep(0.25)
+
+    return result
 
 
 def keywords(piece):

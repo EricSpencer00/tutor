@@ -1,4 +1,5 @@
 import json
+import subprocess
 import sys
 import unittest
 from datetime import date
@@ -40,6 +41,32 @@ class LibraryContractTests(unittest.TestCase):
             piece = pieces[piece_id]
             self.assertEqual(generate.reading_url(piece), fallback)
             self.assertIn(fallback, verify_links.source_urls(piece))
+
+
+class FetchRetryTests(unittest.TestCase):
+    def test_transient_transport_failure_is_retried(self):
+        success = b"%PDF-1.7\n__META__200|https://example.test/work.pdf|application/pdf"
+        failed = subprocess.CompletedProcess([], 0, stdout=b"", stderr=b"")
+        recovered = subprocess.CompletedProcess([], 0, stdout=success, stderr=b"")
+        with patch.object(
+            verify_links.subprocess,
+            "run",
+            side_effect=[failed, recovered],
+        ) as run, patch.object(verify_links.time, "sleep") as sleep:
+            result = verify_links.fetch("https://example.test/work.pdf")
+
+        self.assertEqual(result, (200, "https://example.test/work.pdf", "application/pdf", b"%PDF-1.7"))
+        self.assertEqual(run.call_count, 2)
+        sleep.assert_called_once_with(0.25)
+
+    def test_permanent_not_found_is_not_retried(self):
+        response = b"not found\n__META__404|https://example.test/work|text/html"
+        completed = subprocess.CompletedProcess([], 0, stdout=response, stderr=b"")
+        with patch.object(verify_links.subprocess, "run", return_value=completed) as run:
+            result = verify_links.fetch("https://example.test/work")
+
+        self.assertEqual(result, (404, "https://example.test/work", "text/html", b"not found"))
+        run.assert_called_once()
 
 
 class SourceFallbackTests(unittest.TestCase):

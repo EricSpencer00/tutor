@@ -24,6 +24,7 @@ kebab-case), `title`, `author`, `year`, `source`, `url`, `topic`, `minutes`,
 and `why` (one or two sentences on what the reader gets out of it, written
 by a person, not generated). If the canonical host blocks automated readers,
 add `fallback_url` with an exact alternate copy; generated pages use that copy
-and the link checker tries it only when the canonical URL fails. Check the URL
-actually loads before adding it.
+and the link checker retries transient transport/server failures, then tries
+the fallback only when the canonical URL still fails. Check the URL actually
+loads before adding it.
 Run `python3 site/generate.py && open site/dist/index.html` to preview.
