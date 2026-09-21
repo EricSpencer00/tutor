@@ -7,10 +7,13 @@ on:
     paths:
       - "site/library.json"
       - "site/verify_links.py"
+      - "site/validate_library.py"
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Validate library data
+        run: python3 site/validate_library.py site/library.json
       - name: Check every library URL resolves to the real document
         run: python3 site/verify_links.py site/library.json

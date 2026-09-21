@@ -17,10 +17,15 @@ a link out to the real source, plus the last 14 days of picks computed the
 same way, so a missed day is recoverable without any state file. Pure
 stdlib, no network calls at build time, no API keys.
 
+The weekly link check also runs `site/validate_library.py`, which catches
+missing fields, duplicate ids or URLs, malformed ids and URLs, implausible
+reading times, and editor notes that are too thin to be useful.
+
 ## Adding an entry
 
 Add an object to the `pieces` array in `site/library.json`: `id` (unique,
 kebab-case), `title`, `author`, `year`, `source`, `url`, `topic`, `minutes`,
 and `why` (one or two sentences on what the reader gets out of it, written
-by a person, not generated). Check the url actually loads before adding it.
-Run `python3 site/generate.py && open site/dist/index.html` to preview.
+by a person, not generated). Check the url actually loads before adding it,
+then run `python3 site/validate_library.py site/library.json` and
+`python3 site/generate.py && open site/dist/index.html` to preview.

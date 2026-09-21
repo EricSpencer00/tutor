@@ -337,7 +337,7 @@
       "author": "Freeman Dyson",
       "year": 2009,
       "source": "Notices of the AMS",
-      "url": "https://www.ams.org/notices/200902/rtx090200212p.pdf",
+      "url": "https://pdodds.w3.uvm.edu/files/papers/others/2009/dyson2009a.pdf",
       "topic": "Mathematics",
       "minutes": 35,
       "why": "Dyson divides mathematicians into birds who see connections and frogs who solve what is in front of them, and insists a field needs both. Useful for deciding which one you are this year."
@@ -726,6 +726,138 @@
       "topic": "Philosophy",
       "minutes": 12,
       "why": "On how a research field can generate endless rigorous work about something nobody should care about. A useful test to run on your own projects."
+    },
+    {
+      "id": "meadows-leverage-points",
+      "title": "Leverage Points: Places to Intervene in a System",
+      "author": "Donella H. Meadows",
+      "year": 1999,
+      "source": "The Donella Meadows Project",
+      "url": "https://donellameadows.org/wp-content/userfiles/Leverage_Points.pdf",
+      "topic": "Systems thinking",
+      "minutes": 25,
+      "why": "Meadows ranks the places where an intervention can change a system, from tweaking numbers to changing the rules and goals. The list is short, memorable, and a useful antidote to confusing visible activity with real leverage."
+    },
+    {
+      "id": "freeman-tyranny-structurelessness",
+      "title": "The Tyranny of Structurelessness",
+      "author": "Jo Freeman",
+      "year": 1970,
+      "source": "essay",
+      "url": "https://www.jofreeman.com/joreen/tyranny.htm",
+      "topic": "Organizations",
+      "minutes": 25,
+      "why": "A warning that groups without visible structure still develop informal power—and that refusing to name it makes it harder to challenge. Read it for a sharper vocabulary for meetings, movements, and teams."
+    },
+    {
+      "id": "clark-extended-mind",
+      "title": "The Extended Mind",
+      "author": "Andy Clark and David J. Chalmers",
+      "year": 1998,
+      "source": "Analysis",
+      "url": "https://consc.net/papers/extended.html",
+      "topic": "Philosophy of mind",
+      "minutes": 35,
+      "why": "The notebook in Otto's pocket is the paper's simple test: if an external tool plays the same role as memory, why draw the boundary at the skull? It turns a thought experiment into a precise argument about mind and environment."
+    },
+    {
+      "id": "engelbart-augmenting-intellect",
+      "title": "Augmenting Human Intellect: A Conceptual Framework",
+      "author": "Douglas C. Engelbart",
+      "year": 1962,
+      "source": "SRI report",
+      "url": "https://www.dougengelbart.org/content/view/138",
+      "topic": "Computing",
+      "minutes": 120,
+      "why": "Engelbart treats tools, notation, training, and organizations as one system for improving human problem-solving. Long, technical, and startlingly concrete about interfaces that still feel futuristic."
+    },
+    {
+      "id": "ritchie-development-c",
+      "title": "The Development of the C Language",
+      "author": "Dennis M. Ritchie",
+      "year": 1993,
+      "source": "HOPL II paper",
+      "url": "https://cm-bell-labs.github.io/who/dmr/hopl.html",
+      "topic": "Programming",
+      "minutes": 20,
+      "why": "Ritchie explains C as an accumulation of constraints, accidents, and useful ideas rather than a clean design handed down whole. It is a rare language history told by the person who made the decisions."
+    },
+    {
+      "id": "weiser-computer-21st-century",
+      "title": "The Computer for the 21st Century",
+      "author": "Mark Weiser",
+      "year": 1991,
+      "source": "Scientific American",
+      "url": "https://worrydream.com/refs/Weiser_1991_-_The_Computer_for_the_21st_Century.pdf",
+      "topic": "Ubiquitous computing",
+      "minutes": 30,
+      "why": "Weiser's central idea is that the best computer disappears into the room instead of demanding attention. Compare his calm predictions with the devices now competing for every spare second."
+    },
+    {
+      "id": "ostrom-beyond-markets-states",
+      "title": "Beyond Markets and States: Polycentric Governance of Complex Economic Systems",
+      "author": "Elinor Ostrom",
+      "year": 2009,
+      "source": "Nobel Prize lecture",
+      "url": "https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/lecture/",
+      "topic": "Economics",
+      "minutes": 40,
+      "why": "Ostrom shows why commons are not doomed to either privatization or central control, then replaces the false binary with a study of how people actually govern shared resources. The cases make the institutional design principles stick."
+    },
+    {
+      "id": "searle-minds-brains-programs",
+      "title": "Minds, Brains, and Programs",
+      "author": "John R. Searle",
+      "year": 1980,
+      "source": "Behavioral and Brain Sciences",
+      "url": "https://www.cs.tufts.edu/comp/50cog/readings/searle.html",
+      "topic": "Artificial intelligence",
+      "minutes": 40,
+      "why": "The Chinese Room argument is the hook, but the real value is Searle's distinction between manipulating symbols and understanding them. Read it alongside Turing to see two radically different answers to the same question."
+    },
+    {
+      "id": "carson-obligation-endure",
+      "title": "The Obligation to Endure",
+      "author": "Rachel Carson",
+      "year": 1962,
+      "source": "Silent Spring",
+      "url": "https://ejcj.orfaleacenter.ucsb.edu/wp-content/uploads/2017/06/1962.-Rachel-Carson-Silent-Spring.pdf",
+      "topic": "Environmental science",
+      "minutes": 20,
+      "why": "Carson makes the case against treating living systems as empty surfaces for chemical experiments. The chapter is precise about mechanisms, restrained in tone, and still a model for explaining a slow-moving risk."
+    },
+    {
+      "id": "dewey-pedagogic-creed",
+      "title": "My Pedagogic Creed",
+      "author": "John Dewey",
+      "year": 1897,
+      "source": "The School Journal",
+      "url": "https://en.wikisource.org/wiki/My_Pedagogic_Creed",
+      "topic": "Education",
+      "minutes": 20,
+      "why": "Dewey reduces education to a few commitments about experience, society, and the child's own activity. The short sections are a useful check on whether a teaching system is built around learning or around delivery."
+    },
+    {
+      "id": "miller-magical-number",
+      "title": "The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information",
+      "author": "George A. Miller",
+      "year": 1956,
+      "source": "Psychological Review",
+      "url": "https://labs.la.utexas.edu/gilden/files/2016/04/MagicNumberSeven-Miller1956.pdf",
+      "topic": "Psychology",
+      "minutes": 25,
+      "why": "Miller's experiments connect memory span, chunking, and information theory, while also showing how a memorable phrase can outlive the nuance around it. Read the whole paper before repeating the number."
+    },
+    {
+      "id": "liskov-data-abstraction",
+      "title": "Data Abstraction and Hierarchy",
+      "author": "Barbara Liskov",
+      "year": 1987,
+      "source": "OOPSLA keynote",
+      "url": "https://www.cs.tufts.edu/~nr/cs257/archive/barbara-liskov/data-abstraction-and-hierarchy.pdf",
+      "topic": "Software engineering",
+      "minutes": 25,
+      "why": "Liskov separates the durable idea—data abstraction—from the organizational pattern often bundled with it—hierarchy. That distinction still pays off when a codebase confuses a clean interface with a deep inheritance tree."
     }
   ]
 }
