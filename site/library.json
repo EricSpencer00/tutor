@@ -204,8 +204,8 @@
       "title": "The Two Cultures of Mathematics",
       "author": "W. T. Gowers",
       "year": 2000,
-      "source": "essay",
-      "url": "https://www.dpmms.cam.ac.uk/~wtg10/2cultures.pdf",
+      "source": "essay (Trinity College Dublin copy)",
+      "url": "https://www.maths.tcd.ie/~bnick/Gowers.pdf",
       "topic": "Mathematics",
       "minutes": 35,
       "why": "Theory-builders versus problem-solvers, written by someone defending the second against a discipline that rewards the first. The split shows up in engineering teams too."
@@ -589,8 +589,8 @@
       "title": "A Mathematician's Apology",
       "author": "G. H. Hardy",
       "year": 1940,
-      "source": "University of Alberta (PDF)",
-      "url": "https://www.math.uci.edu/~brusso/apology.pdf",
+      "source": "university-hosted PDF",
+      "url": "https://web.njit.edu/~akansu/PAPERS/GHHardy-AMathematiciansApology.pdf",
       "topic": "Mathematics",
       "minutes": 90,
       "why": "A great mathematician past his best work defends beauty as the point of the subject. He was wrong that number theory would stay useless, which makes it better."
