@@ -3,10 +3,16 @@ on:
   schedule:
     - cron: "0 12 * * 1"
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "site/library.json"
+      - "site/verify_links.py"
+      - ".github/workflows/verify-links.yml"
   push:
     paths:
       - "site/library.json"
       - "site/verify_links.py"
+      - ".github/workflows/verify-links.yml"
 jobs:
   verify:
     runs-on: ubuntu-latest

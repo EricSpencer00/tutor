@@ -206,6 +206,7 @@
       "year": 2000,
       "source": "essay",
       "url": "https://www.dpmms.cam.ac.uk/~wtg10/2cultures.pdf",
+      "fallback_url": "https://www.maths.tcd.ie/~bnick/Gowers.pdf",
       "topic": "Mathematics",
       "minutes": 35,
       "why": "Theory-builders versus problem-solvers, written by someone defending the second against a discipline that rewards the first. The split shows up in engineering teams too."
@@ -338,6 +339,7 @@
       "year": 2009,
       "source": "Notices of the AMS",
       "url": "https://www.ams.org/notices/200902/rtx090200212p.pdf",
+      "fallback_url": "https://web.archive.org/web/20110304104413/http://www.ams.org/notices/200902/rtx090200212p.pdf",
       "topic": "Mathematics",
       "minutes": 35,
       "why": "Dyson divides mathematicians into birds who see connections and frogs who solve what is in front of them, and insists a field needs both. Useful for deciding which one you are this year."
